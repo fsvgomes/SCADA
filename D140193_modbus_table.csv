@@ -1,0 +1,65 @@
+Input Registers,
+Address,Unit,Format,Scale Factor,Label
+1,m/s,IEEE754,1,Anemometer Velocidade do vento
+3,m/s,IEEE754,1,Anemometer Velocidade do vento avg
+5,m/s,IEEE754,1,Anemometer Velocidade do vento max
+7,m/s,IEEE754,1,Anemometer Velocidade do vento min
+9,m/s,IEEE754,1,Anemometer Velocidade do vento stddev
+11,°,IEEE754,1,Wind Vane TMR Direção do vento
+13,°,IEEE754,1,Wind Vane TMR Direção do vento avg
+15,%,IEEE754,1,Hygro/Thermo Umidade relativa
+17,%,IEEE754,1,Hygro/Thermo Umidade relativa avg
+19,%,IEEE754,1,Hygro/Thermo Umidade relativa max
+21,%,IEEE754,1,Hygro/Thermo Umidade relativa min
+23,%,IEEE754,1,Hygro/Thermo Umidade relativa stddev
+25,°C,IEEE754,1,Hygro/Thermo Temperatura
+27,°C,IEEE754,1,Hygro/Thermo Temperatura avg
+29,°C,IEEE754,1,Hygro/Thermo Temperatura max
+31,°C,IEEE754,1,Hygro/Thermo Temperatura min
+33,°C,IEEE754,1,Hygro/Thermo Temperatura stddev
+35,hPa,IEEE754,1,Barometer Pressão atmosférica
+37,hPa,IEEE754,1,Barometer Pressão atmosférica avg
+39,hPa,IEEE754,1,Barometer Pressão atmosférica max
+41,hPa,IEEE754,1,Barometer Pressão atmosférica min
+43,hPa,IEEE754,1,Barometer Pressão atmosférica stddev
+45,W/m²,IEEE754,1,DHI (Diffuse Horizontal Irradiance) Irradiação global
+47,W/m²,IEEE754,1,DHI (Diffuse Horizontal Irradiance) Irradiação global avg
+49,W/m²,IEEE754,1,DHI (Diffuse Horizontal Irradiance) Irradiação global max
+51,W/m²,IEEE754,1,DHI (Diffuse Horizontal Irradiance) Irradiação global min
+53,W/m²,IEEE754,1,DHI (Diffuse Horizontal Irradiance) Irradiação global stddev
+55,W/m²,IEEE754,1,GHI (Global Horizontal Irradiance) Irradiação global
+57,W/m²,IEEE754,1,GHI (Global Horizontal Irradiance) Irradiação global avg
+59,W/m²,IEEE754,1,GHI (Global Horizontal Irradiance) Irradiação global max
+61,W/m²,IEEE754,1,GHI (Global Horizontal Irradiance) Irradiação global min
+63,W/m²,IEEE754,1,GHI (Global Horizontal Irradiance) Irradiação global stddev
+65,W/m²,IEEE754,1,DNI (Direct Normal Irradiance) Pyrheliometer DNI
+67,W/m²,IEEE754,1,DNI (Direct Normal Irradiance) Pyrheliometer DNI avg
+69,W/m²,IEEE754,1,DNI (Direct Normal Irradiance) Pyrheliometer DNI max
+71,W/m²,IEEE754,1,DNI (Direct Normal Irradiance) Pyrheliometer DNI min
+73,W/m²,IEEE754,1,DNI (Direct Normal Irradiance) Pyrheliometer DNI stddev
+75,,IEEE754,1,DNI (Direct Normal Irradiance) Pyrheliometer Estado do sol estimado
+77,mm,IEEE754,1,Precipitation Precipitação sum
+79,W/m2,IEEE754,1,GTI (Global Tilt Irradiance) PV Cell Voltagem análogica
+81,W/m2,IEEE754,1,GTI (Global Tilt Irradiance) PV Cell Voltagem análogica avg
+83,W/m2,IEEE754,1,GTI (Global Tilt Irradiance) PV Cell Voltagem análogica max
+85,W/m2,IEEE754,1,GTI (Global Tilt Irradiance) PV Cell Voltagem análogica min
+89,W/m2,IEEE754,1,GTI (Global Tilt Irradiance) PV Cell Voltagem análogica stddev
+91,V,IEEE754,1,V
+93,V,IEEE754,1,V
+95,°C,IEEE754,1,T
+97,°C,IEEE754,1,T
+101,,ushort,,Live Year
+102,,ushort,,Live Month
+103,,ushort,,Live Day
+104,,ushort,,Live Hour
+105,,ushort,,Live Minute
+106,,ushort,,Live Second
+
+Holding Registers,active
+Set date/time,
+Set switches state,
+Retrieved unix time,
+First input register for retrieved data,
+
+Byte endianness,high_first
+Word endianness,high_first
