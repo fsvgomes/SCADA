@@ -12,11 +12,13 @@ import time
 ## Criando a base de dados
 conn = sqlite3.connect('ammonit.db')
 print ('Base de dados ''ammonit'' conectada')
-c = conn.cursor()
 
 def create_table():
+    c = conn.cursor()
     c.execute('CREATE TABLE IF NOT EXISTS Tabela(ano REAL,mes REAL, dia REAL,hora REAL,minuto REAL,segundo REAL, vel_vento REAL, vel_vento_media REAL,vel_vento_max REAL, vel_vento_min REAL, vel_vento_sdtdev REAL, dir_vento REAL, dir_vento_media REAL, umid_rel REAL, umid_rel_media REAL, umid_rel_max REAL, umid_rel_min REAL, umid_rel_stddev REAL, temp_amb REAL, temp_amb_media REAL, temp_amb_max REAL, temp_amb_min REAL, temp_amb_stddev REAL, pressao_atm REAL, pressao_atm_media REAL, pressao_atm_max REAL, pressao_atm_min REAL, pressao_atm_stddev REAL, DHI REAL, DHI_media REAL, DHI_max REAL, DHI_min REAL, DHI_stddev REAL, GHI REAL, GHI_media REAL, GHI_max REAL, GHI_min REAL, GHI_stddev REAL, DNI REAL, DNI_media REAL, DNI_max REAL, DNI_min REAL, DNI_stddev REAL, DNI_estado_sol REAL, precipitacao REAL, GTI REAL, GTI_media REAL, GTI_max REAL, GTI_min REAL, GTI_stddev REAL, tensao_A REAL, tensao_B REAL, temperatura_A REAL, temperatura_B REAL)')
     print ('Tabela criada na base de dados')
+    c.close()
+
 
 class FloatModbusClient(ModbusClient):
     def read_float(self, address, number=1):
@@ -33,6 +35,7 @@ class FloatModbusClient(ModbusClient):
 
 
 def data_entry():
+    c = conn.cursor()
     # TCP auto connect on first modbus request
     
     # Ler dados
@@ -70,13 +73,12 @@ def data_entry():
     m.close()
 
     # Inserção dos dados
-    c.execute('INSERT INTO Tabela (ano, mes, dia, hora, minuto, segundo, vel_vento,vel_vento_media, vel_vento_max, vel_vento_min, vel_vento_sdtdev, dir_vento,        dir_vento_media, umid_rel, umid_rel_media, umid_rel_max, umid_rel_min, umid_rel_stddev,temp_amb, temp_amb_media, temp_amb_max, temp_amb_min, temp_amb_stddev, pressao_atm,       pressao_atm_media, pressao_atm_max, pressao_atm_min, pressao_atm_stddev, DHI, DHI_media,   DHI_max, DHI_min, DHI_stddev, GHI, GHI_media, GHI_max, GHI_min, GHI_stddev, DNI,    DNI_media, DNI_max, DNI_min, DNI_stddev, DNI_estado_sol, precipitacao, GTI, GTI_media, GTI_max, GTI_min, GTI_stddev, tensao_A, tensao_B, temperatura_A, temperatura_B)        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',(dados[0][0],dados[1][0],dados[2][0],dados[3][0],dados[4][0],dados[5][0],dados[6][0], dados[7][0],dados[8][0],dados[9][0],dados[10][0],dados[11][0],dados[12][0],dados[13][0],dados[14][0],dados[15][0],dados[16][0],dados[17][0],dados[18][0],dados[19][0],dados[20][0],dados[21][0],dados[22][0],dados[23][0],dados[24][0],dados[25][0],dados[26][0],dados[27][0],dados[28][0],dados[29][0],dados[30][0],dados[31][0],dados[32][0],dados[33][0],dados[34][0],dados[35][0],dados[36][0],dados[37][0],dados[38][0],dados[39][0],dados[40][0],dados[41][0],dados[42][0],dados[43][0],dados[44][0],dados[45][0],dados[46][0],dados[47][0],dados[48][0],dados[49][0],dados[50][0],dados[51][0],dados[52][0],dados[53][0]))
-
-    #fechar acesso
+    c.execute('INSERT INTO Tabela(ano, mes, dia, hora, minuto, segundo, vel_vento,vel_vento_media, vel_vento_max, vel_vento_min, vel_vento_sdtdev, dir_vento,        dir_vento_media, umid_rel, umid_rel_media, umid_rel_max, umid_rel_min, umid_rel_stddev,temp_amb, temp_amb_media, temp_amb_max, temp_amb_min, temp_amb_stddev, pressao_atm,       pressao_atm_media, pressao_atm_max, pressao_atm_min, pressao_atm_stddev, DHI, DHI_media,   DHI_max, DHI_min, DHI_stddev, GHI, GHI_media, GHI_max, GHI_min, GHI_stddev, DNI,    DNI_media, DNI_max, DNI_min, DNI_stddev, DNI_estado_sol, precipitacao, GTI, GTI_media, GTI_max, GTI_min, GTI_stddev, tensao_A, tensao_B, temperatura_A, temperatura_B)        VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',(dados[0][0],dados[1][0],dados[2][0],dados[3][0],dados[4][0],dados[5][0],dados[6][0], dados[7][0],dados[8][0],dados[9][0],dados[10][0],dados[11][0],dados[12][0],dados[13][0],dados[14][0],dados[15][0],dados[16][0],dados[17][0],dados[18][0],dados[19][0],dados[20][0],dados[21][0],dados[22][0],dados[23][0],dados[24][0],dados[25][0],dados[26][0],dados[27][0],dados[28][0],dados[29][0],dados[30][0],dados[31][0],dados[32][0],dados[33][0],dados[34][0],dados[35][0],dados[36][0],dados[37][0],dados[38][0],dados[39][0],dados[40][0],dados[41][0],dados[42][0],dados[43][0],dados[44][0],dados[45][0],dados[46][0],dados[47][0],dados[48][0],dados[49][0],dados[50][0],dados[51][0],dados[52][0],dados[53][0]))
+   
     conn.commit()
     print ('Base de dados ''ammonit'' atualizada')
-    #c.close()
-    #print ('Base de dados ''ammonit'' desconectada')
+    #fechar acesso
+    c.close()
 
 
 create_table()
@@ -94,6 +96,5 @@ while True:
     else:
         i+=1
 
-c.close()
 print ('Base de dados ''ammonit'' desconectada')
 
