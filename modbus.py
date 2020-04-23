@@ -1,3 +1,9 @@
+###########  Programa para geração de base de dados, coleta remota de dados #############
+###########  via protocolo Modbus TCP/IP e atualização de base de dados.    #############
+###########                 Autor:  Flavio Gomes                            #############
+
+
+## Importação de Pacotes
 from pyModbusTCP.client import ModbusClient
 from pyModbusTCP import utils
 import sqlite3
